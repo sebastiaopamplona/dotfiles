@@ -1,0 +1,113 @@
+# Path to your oh-my-zsh installation.
+export ZSH="<add>"
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# crispy themes: [theunraveler, avit, jonathan, gnzh, mgutz]
+#ZSH_THEME="avit"
+ZSH_THEME="avitseb"
+
+# NOTE: All if the documentation as comment that used to be here is at the
+# end of the file
+
+# Toggle the following line to automatically update without prompting.
+DISABLE_UPDATE_PROMPT="true"
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+DISABLE_MAGIC_FUNCTIONS=true
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+ZSH_DISABLE_COMPFIX="true"
+
+# Which plugins would you like to load?
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(
+	git
+	zsh-autosuggestions
+	zsh-syntax-highlighting
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+export LANG=en_US.UTF-8
+
+alias vz="nvim ~/.zshrc"
+alias sz="source ~/.zshrc"
+alias p3="python3"
+
+alias ggra="git log --all --decorate --graph"
+alias gud="git fetch && git rebase && git submodule update --init"
+alias gfix="ga -A && git commit --amend --no-edit && git push -f"
+alias gfr="git fetch && git rebase origin/master"
+alias ga="git add -p"
+alias ghard="git reset --hard HEAD"
+
+# Env Variables
+export EDITOR="nvim"
+
+# Functions
+b64d() {
+	if [ "$#" -gt 0 ]
+	then
+		base64 -d <<< $1
+	else
+		echo "give me something to decode (eg. b64d Y29uaW5oYQo=)"
+	fi
+}
+
+b64e() {
+	if [ "$#" -gt 0 ]
+	then
+		echo -n $1 | base64 -b 0
+	else
+		echo "give me something to encode"
+	fi
+}
+
+bcst() {
+	if [ "$#" -gt 1 ]
+	then	
+		find . -maxdepth $2 -mindepth 1 -type d -exec bash -c "cd '{}' && echo '{}' && $1" \;
+	else
+		find . -maxdepth 1 -mindepth 1 -type d -exec bash -c "cd '{}' && echo '{}' && $1" \;
+	fi
+}
+
+v() {
+	if [ -z ${1} ];then local target=".";else local target=$1;fi
+
+	nvim $target
+}
+
+gcoo() {
+	gco $(gb | fzf)
+}
+
+save() {
+	git add . && git commit -m "wip: ${1}"
+}
+
+export PATH="/usr/local/opt/qt/bin:$PATH"
+[[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+#. ~/.dotfiles/.aliases
+#. ~/.dotfiles/.functions
+#. ~/.dotfiles/.env_vars
+
+
