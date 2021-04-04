@@ -1,0 +1,25 @@
+" Because my brain inverts a command with SHIFT
+nnoremap W b
+
+" Speed up j and k
+nnoremap <c-j> 3j
+nnoremap <c-k> 3k
+vnoremap <c-j> 3j
+vnoremap <c-k> 3k
+
+" Select in normal mode
+nnoremap H <esc>vh
+nnoremap J <esc>vj
+nnoremap K <esc>vk
+nnoremap L <esc>vl
+
+" Keep selection started in normal mode
+vnoremap H h
+vnoremap J j
+vnoremap K k
+vnoremap L l
+vnoremap W b
+vnoremap <c-J> 3j
+vnoremap <c-K> 3k
+
+
