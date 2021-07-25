@@ -1,6 +1,8 @@
 call plug#begin('~/.config/nvim/plugged')
 
 	" Code completion
+	Plug 'neovim/nvim-lspconfig'
+	Plug 'hrsh7th/nvim-compe'
 	
 	" Navigation and searching
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }	

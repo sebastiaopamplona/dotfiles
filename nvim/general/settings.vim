@@ -44,7 +44,7 @@ colorscheme onehalfdark
 " colorscheme gruvbox
 " colorscheme nord 
 " colorscheme onedark
-hi Normal guibg=NONE ctermbg=NONE
+" hi Normal guibg=NONE ctermbg=NONE
 
 " set softtabstop=0 noexpandtab
 " set shiftwidth=4
