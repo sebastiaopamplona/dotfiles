@@ -26,6 +26,30 @@ set formatoptions-=cro                  " Stop newline continution of comments
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 set nowrap 															" No text wrapping
 set noswapfile													" No swap file (might be a mistake)
+" set foldmethod=indent 								" Folds by indent
+au BufNewFile,BufRead * if &syntax == '' | set syntax=zsh | endif " zsh default syntax
+set t_Co=256
+set cursorline
 
-" colorscheme nord 												" Nord theme
-" colorscheme onedark 										" Onedark theme
+if (has("termguicolors"))
+ let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+ set termguicolors
+endif
+
+let g:airline_theme='onehalfdark'
+
+colorscheme onehalfdark
+" colorscheme shades_of_purple
+" colorscheme gruvbox
+" colorscheme nord 
+" colorscheme onedark
+
+" set softtabstop=0 noexpandtab
+" set shiftwidth=4
+" set incsearch
+" set hlsearch
+" set hidden " <- when a new buffer is opened, the prev file is not closed
+" set colorcolumn=100
+" highlight ColorColumn ctermbg=0 guibg=lightgrey
+" set cursorline                        " Enable highlighting of the current line

@@ -1,17 +1,18 @@
 # AVIT ZSH Theme (forked by seb)
 
 # settings
-typeset +H _current_dir="%{$fg_bold[blue]%}%3~%{$reset_color%} "
+typeset +H _current_dir="%{$fg_bold[blue]%}%10~%{$reset_color%} "
 typeset +H _return_status="%{$fg_bold[red]%}%(?..⍉)%{$reset_color%}"
 typeset +H _hist_no="%{$fg[grey]%}%h%{$reset_color%}"
 
 PROMPT='
-[%D{%H:%M:%S}] $(_user_host)${_current_dir} $(git_prompt_info) $(ruby_prompt_info)
-%{%(!.${fg[red]}.${fg[white]})%}>%{$reset_color%} '
+$(_user_host)${_current_dir} $(git_prompt_info) $(ruby_prompt_info)
+%{%(!.${fg[red]}.${fg[white]})%}%{$reset_color%}'
 
 PROMPT2='%{%(!.${fg[red]}.${fg[white]})%}◀%{$reset_color%} '
 
-RPROMPT='$(vi_mode_prompt_info)%{$(echotc UP 1)%} ${_return_status}%{$(echotc DO 1)%}'
+RPROMPT='$(vi_mode_prompt_info)'%D{%H:%M:%S}
+#RPROMPT='$(vi_mode_prompt_info)%{$(echotc UP 1)%} ${_return_status}%{$(echotc DO 1)%}'%D{%H:%M:%S}
 #RPROMPT='$(vi_mode_prompt_info)%{$(echotc UP 1)%}$(_git_time_since_commit) $(git_prompt_status) ${_return_status}%{$(echotc DO 1)%}'
 
 function _user_host() {
