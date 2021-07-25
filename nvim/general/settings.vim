@@ -1,7 +1,7 @@
 let mapleader = "\<Space>"
 
 syntax on 															" Enable syntax
-set number "relativenumber 							" Line number + relative line numbers
+set relativenumber "number  						" Line number + relative line numbers
 set encoding=utf-8                      " The encoding displayed
 set ruler              			            " Show the cursor position all the time
 set cmdheight=2                         " More space for displaying messages
@@ -37,13 +37,14 @@ if (has("termguicolors"))
  set termguicolors
 endif
 
-let g:airline_theme='onehalfdark'
+"let g:airline_theme='onehalfdark'
 
 colorscheme onehalfdark
 " colorscheme shades_of_purple
 " colorscheme gruvbox
 " colorscheme nord 
 " colorscheme onedark
+hi Normal guibg=NONE ctermbg=NONE
 
 " set softtabstop=0 noexpandtab
 " set shiftwidth=4
