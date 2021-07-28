@@ -5,10 +5,6 @@ nnoremap ß :w<CR>
 " Because my brain inverts a command with SHIFT
 nnoremap <s-w> b
 
-" Speed up j and k (⌘-j) (⌘-k)
-nnoremap <c-j> 3j
-nnoremap <c-k> 3k
-
 " Delete a char and insert 
 nnoremap X xi
 
@@ -27,10 +23,6 @@ nnoremap ≠ :noh<CR>
 " Switch between buffers
 nnoremap T :tabnew .<CR>
 nnoremap <leader>t :tabclose<CR>
-
-" Next and prev tab
-nnoremap 2 :bnext<CR> 							
-nnoremap 1 :bprevious<CR>	
 
 " Save
 nnoremap <c-s> <esc>:wq<CR>
@@ -73,9 +65,7 @@ inoremap jk <esc>
 " Keep selection started in normal mode
 vnoremap H h
 vnoremap J j
-vnoremap <c-j> 3j
 vnoremap K k
-vnoremap <c-k> 3k
 vnoremap L l
 vnoremap W b
 
