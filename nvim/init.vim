@@ -7,6 +7,7 @@ source $HOME/.config/nvim/plugin-settings/blamer.vim
 luafile $HOME/.config/nvim/plugin-settings/compe.lua
 source $HOME/.config/nvim/plugin-settings/fzf.vim
 source $HOME/.config/nvim/plugin-settings/lsp-config.vim
+source $HOME/.config/nvim/plugin-settings/nvim-tree.vim
 source $HOME/.config/nvim/plugin-settings/vim-airline.vim
 
 

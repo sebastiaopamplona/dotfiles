@@ -7,6 +7,8 @@ call plug#begin('~/.config/nvim/plugged')
 	" Navigation and searching
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }	
 	Plug 'junegunn/fzf.vim'
+	Plug 'kyazdani42/nvim-web-devicons' " for file icons
+  Plug 'kyazdani42/nvim-tree.lua'
 
 	" Git
 	Plug 'airblade/vim-gitgutter'
