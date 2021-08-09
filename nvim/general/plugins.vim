@@ -12,6 +12,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 	" Git
 	Plug 'airblade/vim-gitgutter'
+	Plug 'APZelos/blamer.nvim'
 	
 	" Colors and themes
 	Plug 'sonph/onehalf', { 'rtp': 'vim' }

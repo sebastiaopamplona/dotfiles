@@ -1,7 +1,7 @@
 let mapleader = "\<Space>"
 
 syntax on 															" Enable syntax
-set relativenumber "number  						" Line number + relative line numbers
+set number "relativenumber   						" Line number + relative line numbers
 set encoding=utf-8                      " The encoding displayed
 set ruler              			            " Show the cursor position all the time
 set cmdheight=2                         " More space for displaying messages
