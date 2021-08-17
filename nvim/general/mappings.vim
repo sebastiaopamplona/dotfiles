@@ -64,10 +64,13 @@ inoremap jk <esc>
 
 " Keep selection started in normal mode
 vnoremap H h
-vnoremap J j
-vnoremap K k
+vnoremap J jzz
+vnoremap K kzz
 vnoremap L l
 vnoremap W b
+
+vnoremap j jzz
+vnoremap k kzz
 
 " Testing no copy with d
 "vnoremap d "_d
