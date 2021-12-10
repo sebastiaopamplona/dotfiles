@@ -26,10 +26,12 @@ set formatoptions-=cro                  " Stop newline continution of comments
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 set nowrap 															" No text wrapping
 set noswapfile													" No swap file (might be a mistake)
+set scrolloff=3
 " set foldmethod=indent 								" Folds by indent
 au BufNewFile,BufRead * if &syntax == '' | set syntax=zsh | endif " zsh default syntax
 set t_Co=256
 set cursorline
+set ic                                  " Ignore case
 
 if (has("termguicolors"))
  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
