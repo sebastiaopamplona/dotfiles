@@ -8,6 +8,9 @@ nnoremap <s-w> b
 " Delete a char and insert 
 nnoremap X xi
 
+nnoremap <c-k> 3k
+nnoremap <c-j> 3j
+
 " Select in normal mode
 nnoremap H <esc>vh
 nnoremap J <esc>vj
@@ -101,5 +104,4 @@ vnoremap <S-Tab> <gv
 " [x] æ (alt-') itemr2 cmd [
 " [x] ø (alt-o) itemr2 cmd ]
 " [ ] π (alt-p)
-
 

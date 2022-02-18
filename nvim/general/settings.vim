@@ -42,6 +42,7 @@ endif
 "let g:airline_theme='onehalfdark'
 
 colorscheme onehalfdark
+
 " colorscheme shades_of_purple
 " colorscheme gruvbox
 " colorscheme nord 
