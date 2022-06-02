@@ -11,6 +11,9 @@ nnoremap X xi
 nnoremap <c-k> 3k
 nnoremap <c-j> 3j
 
+vnoremap <c-k> 3k
+vnoremap <c-j> 3j
+
 " Select in normal mode
 nnoremap H <esc>vh
 nnoremap J <esc>vj

@@ -4,7 +4,7 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/opt/coreutils/libexec/gnubin
 export ZSH="$HOME/.oh-my-zsh"
 
 #ZSH_THEME="agnoster"
-ZSH_THEME="agnosterseb"
+ZSH_THEME="avitseb"
 
 # Toggle the following line to automatically update without prompting.
 DISABLE_UPDATE_PROMPT="true"
@@ -40,9 +40,6 @@ alias svv="source ~/.config/nvim/init.vim"
 alias p3="python3"
 alias pbc="tr -d '\n' | pbcopy" # <- change for ubuntu
 alias dif="colordiff"
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
 alias urldecode='python3 -c "import sys, urllib.parse as ul; print(ul.unquote_plus(sys.argv[1]))"'
 alias urlencode='python3 -c "import sys, urllib.parse as ul; print (ul.quote_plus(sys.argv[1]))"'
 
@@ -70,9 +67,49 @@ gcoo() {
 	gco $(gb | fzf)
 }
 
+ggc() {
+	scan=""
+	
+	# scan for unwanted code
+	for f in $(gst -s | grep 'M  \|A  ' | awk '{print $2}')
+	do
+		grepresult=$(cat $f | grep -ni 'TODO(SP)\|FIXME(SP)\|debugdata\|\[DEBUG\]\|console.log')
+		if [ "${grepresult}" != "" ]
+		then
+			scan="${scan}\n${f}\n${grepresult}\n"
+		fi
+	done
+
+	# exit if there's unwanted code
+	if [ ${#scan} > 0 ] && [ "${1}" != "-s" ]
+	then
+		echo "Changes to be committed have unwanted changes.\nRun ggc with -s to skip these."
+		echo $scan
+		return 1
+	fi
+
+	git commit -v
+}
+
+jwt-decode() {
+  sed 's/\./\n/g' <<< $(cut -d. -f1,2 <<< $1) | base64 --decode | jq
+}
+
+# optional
+
 [[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-. ~/.dotfiles_pers/.aliases
-. ~/.dotfiles_pers/.functions
-. ~/.dotfiles_pers/.env_vars
+export NVM_DIR="$HOME/.nvm"
+# loads nvm
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"
+# loads nvm bash_completion
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
+
+# Tesla specific (THE ORDER OF THESE 3 FILES MATTERS)
+. "$HOME/.dotfiles_tesla/.env_vars.sh"
+. "$HOME/.dotfiles_tesla/.aliases.sh"
+. "$HOME/.dotfiles_tesla/.functions.sh"
+
+nvm install 14.17.0
+
