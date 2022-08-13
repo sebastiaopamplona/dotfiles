@@ -1,4 +1,4 @@
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/opt/coreutils/libexec/gnubin:$PATH
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/opt/coreutils/libexec/gnubin:$HOME/go/bin:.nvm/versions/node/v16.16.0/bin:$HOME/.local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -19,11 +19,19 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 ZSH_DISABLE_COMPFIX="true"
 
+# Controls whether the prompt is redrawn when switching to a different input mode.
+# If this is unset, the mode indicator will not be updated when changing to a
+# different mode.
+VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+
+# Controls whether the cursor style is changed when switching to a different input mode.
+VI_MODE_SET_CURSOR=true
+
 plugins=(
 	git
 	zsh-autosuggestions
 	zsh-syntax-highlighting
-	#vi-mode
+	# vi-mode
 )
 #bindkey -v
 
@@ -35,8 +43,8 @@ export LANG=en_US.UTF-8
 ## General
 alias vz="nvim ~/.zshrc"
 alias sz="source ~/.zshrc"
-alias vv="nvim ~/.config/nvim/init.vim"
-alias svv="source ~/.config/nvim/init.vim"
+alias vv="nvim ~/.config/nvim/init.lua"
+alias svv="source ~/.config/nvim/init.lua"
 alias p3="python3"
 alias pbc="tr -d '\n' | pbcopy" # <- change for ubuntu
 alias dif="colordiff"
@@ -91,6 +99,11 @@ ggc() {
 	git commit -v
 }
 
+grc () {
+  nvim $1 && git add $1
+  echo "${1} <- conflict resolved and staged!"
+}
+
 jwt-decode() {
   sed 's/\./\n/g' <<< $(cut -d. -f1,2 <<< $1) | base64 --decode | jq
 }
@@ -100,16 +113,7 @@ jwt-decode() {
 [[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export NVM_DIR="$HOME/.nvm"
-# loads nvm
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"
-# loads nvm bash_completion
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
-
 # Tesla specific (THE ORDER OF THESE 3 FILES MATTERS)
 . "$HOME/.dotfiles_tesla/.env_vars.sh"
 . "$HOME/.dotfiles_tesla/.aliases.sh"
 . "$HOME/.dotfiles_tesla/.functions.sh"
-
-nvm install 14.17.0
-

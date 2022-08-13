@@ -19,5 +19,6 @@ vnoremap J j
 vnoremap K k
 vnoremap L l
 vnoremap W b
-vnoremap <c-J> 3j
-vnoremap <c-K> 3k
+
+vnoremap < <gv
+vnoremap > >gv
