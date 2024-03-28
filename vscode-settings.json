@@ -1,0 +1,62 @@
+{
+  "workbench.iconTheme": "eq-material-theme-icons-darker",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true,
+  "prettier.configPath": "prettier.config.js",
+  "prettier.documentSelectors": ["*.{tsx,jsx,ts,js,json}"],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[terraform]": {
+    "editor.defaultFormatter": "hashicorp.terraform"
+  },
+  "terminal.integrated.copyOnSelection": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+  "git.openRepositoryInParentFolders": "always",
+  "editor.wordWrapColumn": 100,
+  "files.insertFinalNewline": true,
+  "editor.wordWrap": "on",
+  "apc.activityBar": {
+    "position": "bottom",
+    "hideSettings": false,
+    "size": 20
+  },
+  "apc.statusBar": {
+    "position": "editor-bottom",
+    "height": 20,
+    "fontSize": 8
+  },
+  "apc.header": {
+    "height": 24,
+    "fontSize": 12
+  },
+  "apc.listRow": {
+    "height": 18,
+    "fontSize": 11
+  },
+  "editor.minimap.enabled": false,
+  "vim.vimrc.enable": true,
+  "vim.vimrc.path": "$HOME/.ideavimrc",
+  "explorer.compactFolders": false,
+  "window.zoomLevel": 1,
+  "[go]": {
+    "editor.defaultFormatter": "golang.go"
+  },
+  "gopls": {
+    "formatting.gofumpt": true,
+    "ui.semanticTokens": true
+  },
+  "editor.lineHeight": 1.4,
+  "workbench.colorTheme": "Monokai Pro (Filter Octagon)",
+  "cSpell.enableFiletypes": ["markdown", "mdx"],
+  "cSpell.userWords": ["Baremetal", "datacenter"],
+  "remote.SSH.remotePlatform": {
+    "coder-vscode--sduartesilvarangelpa--spcodespacedev1-jwbhFL": "linux"
+  },
+  "accessibility.signals.lineHasFoldedArea": {
+    "sound": "off"
+  }
+}
