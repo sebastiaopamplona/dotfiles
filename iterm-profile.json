@@ -208,6 +208,13 @@
       "Text" : "[20;2~",
       "Action" : 10
     },
+    "0x6c-0x100000-0x25" : {
+      "Version" : 2,
+      "Apply Mode" : 0,
+      "Action" : 30,
+      "Text" : "",
+      "Escaping" : 2
+    },
     "0xf701-0x260000" : {
       "Text" : "[1;6B",
       "Action" : 10
@@ -263,6 +270,13 @@
     "0xf70b-0x20000" : {
       "Text" : "[19;2~",
       "Action" : 10
+    },
+    "0x68-0x100000-0x4" : {
+      "Version" : 2,
+      "Apply Mode" : 0,
+      "Action" : 31,
+      "Text" : "",
+      "Escaping" : 2
     },
     "0xf728-0x0" : {
       "Text" : "0x4",
@@ -466,7 +480,7 @@
   },
   "Name" : "Default",
   "Blinking Cursor" : false,
-  "Guid" : "74F13FDB-5856-4065-91B4-4EA83B29C8C3",
+  "Guid" : "F982F11E-1D01-44B8-A981-89A8EA81B7F6",
   "Idle Code" : 0,
   "Ansi 10 Color" : {
     "Red Component" : 0.65098041296005249,
