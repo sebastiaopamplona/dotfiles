@@ -1,0 +1,13 @@
+set clipboard="unnamedplus"
+set hlsearch
+set ignorecase
+set mouse="a"
+set pumheight=10
+set showtabline=2
+set smartcase
+set smartindent
+set splitbelow
+set splitright
+set cursorline
+set number
+set numberwidth=4
