@@ -50,7 +50,7 @@
     "ui.semanticTokens": true
   },
   "editor.lineHeight": 1.4,
-  "workbench.colorTheme": "Monokai Pro (Filter Octagon)",
+  "workbench.colorTheme": "Gruvbox Dark Soft",
   "cSpell.enableFiletypes": ["markdown", "mdx"],
   "cSpell.userWords": ["Baremetal", "datacenter"],
   "remote.SSH.remotePlatform": {
@@ -58,5 +58,6 @@
   },
   "accessibility.signals.lineHasFoldedArea": {
     "sound": "off"
-  }
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always"
 }
