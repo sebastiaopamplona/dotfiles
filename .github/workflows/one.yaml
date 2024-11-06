@@ -1,0 +1,29 @@
+name: Run On Demand with Dynamic Matrix
+
+on:
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  generate-matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      people-matrix: ${{ steps.generate.outputs.matrix }}
+    steps:
+      - name: Generate JSON matrix
+        id: generate
+        run: |
+          echo '{"people":[{"name":"john", "strong": true},{"name":"joe", "strong": false}]}' > people.json
+          echo "::set-output name=matrix::$(cat people.json)"
+
+  process-people:
+    needs: generate-matrix
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        person: ${{ fromJson(needs.generate-matrix.outputs.people-matrix).people }}
+
+    steps:
+      - name: Echo name and strength
+        run: |
+          echo "Name: ${{ matrix.person.name }}"
+          echo "Strong: ${{ matrix.person.strong }}"
